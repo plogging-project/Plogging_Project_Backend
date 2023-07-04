@@ -3,6 +3,7 @@ package city.olooe.plogging_project.config;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -21,7 +22,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         // 모든 경로에 대해
         registry.addMapping("/**")
                 // Origin이 http://localhost:3000에 대해
-                .allowedOrigins("http://localhost:3000")
+                .allowedOrigins("http://192.168.0.201:3000")
+                .allowedOriginPatterns(CorsConfiguration.ALL)
                 // "GET", "POST", "PUT", "DELETE", "OPTIONS" 메서드를 허용
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
