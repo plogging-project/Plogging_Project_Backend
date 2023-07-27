@@ -52,7 +52,7 @@ public interface PointHistoryRepository extends JpaRepository<PointHistoryEntity
     public Long totalPoint();
 
     @Query(value = "SELECT sum(point) FROM PointHistoryEntity WHERE memberNo = :memberNo AND type = :type")
-    public Long DonationPoint(@Param("memberNo") MemberEntity memberNo, RewardTypeStatus type);
+    public Long DonationPoint(@Param("memberNo") MemberEntity memberNo,@Param("type") RewardTypeStatus type);
 
     @Query(value = "SELECT sum(point) FROM PointHistoryEntity WHERE memberNo = :memberNo")
     public Long sumPoint(@Param("memberNo") MemberEntity memberNo);
